@@ -7,14 +7,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './app-material.module';
 
-import { ItemsService } from './shared';
+import { ItemsService, CaffeineService, WidgetsService } from './shared';
 
 import { AppComponent } from './app.component';
 import { ItemsComponent } from './items/items.component';
 import { ItemsListComponent } from './items/items-list/items-list.component';
 import { ItemDetailComponent } from './items/item-detail/item-detail.component';
 import { HomeComponent } from './home/home.component';
+import { NachosComponent } from './nachos/nachos.component';
 import { WidgetsComponent } from './widgets/widgets.component';
+import { ReviewsComponent } from './reviews/reviews.component';
+import { WidgetsListComponent } from './widgets/widgets-list/widgets-list.component';
+import { WidgetsDetailComponent } from './widgets/widgets-detail/widgets-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { WidgetsComponent } from './widgets/widgets.component';
     ItemsComponent,
     ItemsListComponent,
     ItemDetailComponent,
-    WidgetsComponent
+    NachosComponent,
+    WidgetsComponent,
+    ReviewsComponent,
+    WidgetsListComponent,
+    WidgetsDetailComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -31,9 +39,9 @@ import { WidgetsComponent } from './widgets/widgets.component';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    AppMaterialModule
+    AppMaterialModule,
   ],
-  providers: [ItemsService],
+  providers: [ItemsService, CaffeineService, WidgetsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

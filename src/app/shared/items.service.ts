@@ -8,7 +8,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 
-const BASE_URL = 'http://localhost:3000/items/';
+const BASE_URL = 'http://0.0.0.0:3000/items/';
 const HEADER = {headers: new Headers({'Content-Type': 'application/json'})};
 
 @Injectable()

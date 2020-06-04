@@ -1,56 +1,42 @@
 import { Component, OnInit } from '@angular/core';
+import { Widget, WidgetsService } from 'app/shared';
 
 @Component({
   selector: 'app-widgets',
   templateUrl: './widgets.component.html',
   styleUrls: ['./widgets.component.css']
 })
+
 export class WidgetsComponent implements OnInit {
-  selectedWidget = null;
-  widgets = [
-    {
-      id: 1,
-      name: 'Red Widget',
-      description: 'This is a red widget'
-    },
-    {
-      id: 2,
-      name: 'Orange Widget',
-      description: 'This is an orange widget'
-    },
-    {
-      id: 3,
-      name: 'Yellow Widget',
-      description: 'This is a yellow widget'
-    },
-    {
-      id: 4,
-      name: 'Green Widget',
-      description: 'This is a green widget'
-    },
-    {
-      id: 5,
-      name: 'Blue Widget',
-      description: 'This is a blue widget'
-    },
-    {
-      id: 6,
-      name: 'Indigo Widget',
-      description: 'This is a indigo widget'
-    },
-    {
-      id: 7,
-      name: 'Violet Widget',
-      description: 'This is a violet widget'
+    selectedWidget: Widget;
+    // array of Widget (model) objects
+    widgets: Array<Widget>;
+
+    constructor(private widgetsService: WidgetsService) {}
+
+    ngOnInit() {
+        this.widgets = this.widgetsService.widgets;
+        this.reset();
     }
-  ];
 
-  constructor() { }
+    reset() {
+        this.selectedWidget = { id: null, name: '', description: '' };
+    }
 
-  ngOnInit() {
-  }
+    selectWidget(widget) {
+        this.selectedWidget = widget;
+    }
 
-  selected(widget) {
-    this.selectedWidget = widget;
-  }
+    deleteWidget(widget) {
+      console.log('Deleting widget', widget);
+    }
+
+    saveWidget(widget) {
+        console.log('Saving widget', widget);
+        this.reset();
+    }
+
+    cancel() {
+        this.reset();
+    }
 }
