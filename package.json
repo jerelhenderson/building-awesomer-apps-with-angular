@@ -5,7 +5,7 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \"npm run server\" \"ng serve\"",
+    "start": "concurrently \"npm run server\" \"ng serve --host 0.0.0.0\"",
     "server": "json-server server/api/db.json --watch",
     "build": "ng build",
     "test": "ng test",
