@@ -15,13 +15,22 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./items-search.component.css']
 })
 export class ItemsSearchComponent implements OnInit {
+  // @ViewChild looks like for a local template variable "child" ('itemsSearch') and creates a reference that can be programmed against
   @ViewChild('itemsSearch') itemsSearch;
+  @Output() results = new EventEmitter();
 
   constructor(private itemsService: ItemsService) {
   }
 
   ngOnInit() {
-
+    // $ indicates an observable string
+    // 'keyup' is the event
+    const search$ = Observable.fromEvent(this.getNativeElement(this.itemsSearch), 'keyup')
+    .debounceTime(200)
+    .distinctUntilChanged()
+    .map((event: any) => event.target.value)
+    .switchMap(query => this.itemsService.search(query))
+    .subscribe(items => this.results.emit(items));
   }
 
   getNativeElement(element) {
