@@ -32,33 +32,13 @@ export class WidgetsComponent implements OnInit {
         this.selectedWidget = widget;
     }
 
-    saveWidget(widget) {
-        if(!widget.id) {
-            this.createWidget(widget);
-        } else {
-            this.updateWidget(widget);
-        }
-    }
-
-    createWidget(widget) {
-        this.widgetsService.create(widget).subscribe(result => {
-            this.loadWidgetsFromService();
-            this.reset();
-        })
-    }
-
-    updateWidget(widget) {
-        this.widgetsService.update(widget).subscribe(result => {
-            this.loadWidgetsFromService();
-            this.reset();
-        })
-    }
-
     deleteWidget(widget) {
-        this.widgetsService.delete(widget).subscribe(result => {
-            this.loadWidgetsFromService();
-            this.reset();
-        })
+      console.log('Deleting widget', widget);
+    }
+
+    saveWidget(widget) {
+        console.log('Saving widget', widget);
+        this.reset();
     }
 
     cancel() {
