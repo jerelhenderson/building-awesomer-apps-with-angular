@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemsService } from '../shared/items.service';
+import { ItemsService, CaffeineService } from '../shared';
 import { Item } from '../shared/item.model';
-import { CaffeineService } from 'app/shared';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +11,13 @@ import { CaffeineService } from 'app/shared';
 export class HomeComponent implements OnInit {
   items: Item[];
   sources;
+  myStatus = 'active';
 
   constructor(private itemsService: ItemsService, private caffeineService: CaffeineService) { }
+
+  logout($event) {
+    this.myStatus = 'LOGGED OUT';
+  }
 
   ngOnInit() {
     this.getItems();
