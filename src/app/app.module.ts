@@ -21,6 +21,7 @@ import { WidgetsListComponent } from './widgets/widgets-list/widgets-list.compon
 import { WidgetsDetailComponent } from './widgets/widgets-detail/widgets-detail.component';
 import { ItemsSearchComponent } from './items/items-search/items-search.component';
 import { StatusComponent } from './status/status.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { StatusComponent } from './status/status.component';
     WidgetsListComponent,
     WidgetsDetailComponent,
     ItemsSearchComponent,
-    StatusComponent
+    StatusComponent,
+    LoginComponent
   ],
   imports: [
     BrowserAnimationsModule,

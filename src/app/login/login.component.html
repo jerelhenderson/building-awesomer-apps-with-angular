@@ -4,18 +4,18 @@
       <h1>Login</h1>
     </md-card-title>
   </md-card-header>
-  <form novalidate>
+  <form [formGroup]="login" (submit)="submit(login)" novalidate>
     <md-card-content>
       <md-input-container class="full-width">
-        <input type="text"  mdInput placeholder="Name">
+        <input type="text"  mdInput formControl="username" placeholder="Username">
       </md-input-container>
       <md-input-container class="full-width">
-        <input type="text" mdInput placeholder="Email">
+        <input type="text" mdInput formControlName="password" placeholder="Password">
       </md-input-container>
     </md-card-content>
     <md-card-actions>
       <button type="submit" md-button>Subscribe!</button>
-      <button type="button" md-button>Cancel</button>
+      <button type="button" md-button (click)="reset()">Cancel</button>
     </md-card-actions>
   </form>
 </md-card>
