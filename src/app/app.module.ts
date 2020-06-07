@@ -20,6 +20,7 @@ import { ReviewsComponent } from './reviews/reviews.component';
 import { WidgetsListComponent } from './widgets/widgets-list/widgets-list.component';
 import { WidgetsDetailComponent } from './widgets/widgets-detail/widgets-detail.component';
 import { ItemsSearchComponent } from './items/items-search/items-search.component';
+import { StatusComponent } from './status/status.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ItemsSearchComponent } from './items/items-search/items-search.componen
     ReviewsComponent,
     WidgetsListComponent,
     WidgetsDetailComponent,
-    ItemsSearchComponent
+    ItemsSearchComponent,
+    StatusComponent
   ],
   imports: [
     BrowserAnimationsModule,
